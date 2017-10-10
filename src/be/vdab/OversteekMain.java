@@ -12,18 +12,7 @@ public class OversteekMain {
         System.out.println("Geef de temperatuur op");
         temperatuur = sc.nextInt();
         
-        OversteekMethode oversteekMethode;
-        if (temperatuur < -5){
-            oversteekMethode = new Ijsschaatsen();
-        }
-        else {
-            if (windsnelheid < 20){
-                oversteekMethode = new Motorboot();
-            }
-            else {
-                oversteekMethode = new Zeilen();
-            }
-        }
+        OversteekMethode oversteekMethode = new OversteekBeslissing().getBeslissing(temperatuur, windsnelheid);
         System.out.println(oversteekMethode.getOversteek((methode) -> methode.getMethode()));
     }
 
